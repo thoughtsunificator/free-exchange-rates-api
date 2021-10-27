@@ -7,22 +7,17 @@ import config from "@thoughtsunificator/config-env"
 
 const consoleLogger = tracer.colorConsole({	format : "{{message}}" })
 
-const tracerOptions = {
+const logger = tracer.dailyfile({
 	root: "./logs",
 	maxLogFiles: 10,
 	format: "{{timestamp}} {{message}}",
 	dateformat: "HH:MM:ss",
 	splitFormat: "yyyymmdd",
-	allLogsFileName: "server"
-}
-
-if(process.env.NODE_ENV !== "production") {
-	tracerOptions.transport = function (data) {
+	allLogsFileName: "server",
+	transport: function (data) {
 		consoleLogger[data.title](data.output)
 	}
-}
-
-const logger = tracer.dailyfile(tracerOptions);
+})
 
 logger.log("[database] Loading ...")
 const client = await MongoDB.MongoClient.connect(config.DATABASE_URL, { useUnifiedTopology: true })
