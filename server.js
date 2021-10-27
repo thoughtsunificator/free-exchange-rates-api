@@ -46,7 +46,12 @@ app.get("/:from/:to/rate", async function (req, res) {
 			}
 		})
 		if(rate) {
-			res.json(rate.value)
+			res.json({
+				from,
+				to,
+				rate: rate.value,
+				date: rate.date
+			})
 		} else {
 			res.json({ error: true, reason: "rate not found", code: 1 })
 		}
@@ -67,7 +72,12 @@ app.get("/:from/:to/:value/convert", async function (req, res) {
 			}
 		})
 		if(rate) {
-			res.json(new Number(value * rate.value).toFixed(2))
+			res.json({
+				from,
+				to,
+				value: parseFloat(value * rate.value),
+				date: rate.date
+			})
 		} else {
 			res.json({ error: true, reason: "rate not found", code: 1 })
 		}
