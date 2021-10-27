@@ -15,6 +15,7 @@
 		"dev": "nodemon server.js"
 	},
 	"dependencies": {
+		"@thoughtsunificator/config-env": "^1.0.3",
 		"apicache": "^1.6.3",
 		"chalk": "^4.1.2",
 		"cors": "^2.8.5",

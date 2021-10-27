@@ -3,8 +3,7 @@ import express from "express"
 import cors from "cors"
 import MongoDB from "mongodb"
 import apicache from "apicache"
-
-import config from "./lib/config.js"
+import config from "@thoughtsunificator/config-env"
 
 const consoleLogger = tracer.colorConsole({	format : "{{message}}" })
 
