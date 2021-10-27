@@ -28,7 +28,7 @@ A free to use API for currency rates.
   "from":"EUR",
   "to":"USD",
   "value": 250, 
-  "result": 289.98249999999996:, 
+  "result": 289.98249999999996, 
   "date":"2021-10-27T15:10:47.616Z"
 }
 ```
