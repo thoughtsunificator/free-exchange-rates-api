@@ -35,7 +35,7 @@ const app = express()
 app.use(apicache.middleware("60 minutes"))
 app.use(cors())
 
-app.get("/:from/:to/rate", async function (req, res) {
+app.get("/:from/:to", async function (req, res) {
 	try {
 		const { from, to } = req.params
 		const rate = await collection.findOne({
@@ -61,7 +61,7 @@ app.get("/:from/:to/rate", async function (req, res) {
 	}
 })
 
-app.get("/:from/:to/:value/convert", async function (req, res) {
+app.get("/:from/:to/:value", async function (req, res) {
 	try {
 		const { value, from, to } = req.params
 		const rate = await collection.findOne({

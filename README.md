@@ -10,7 +10,7 @@ A free to use API for currency rates.
 
 ## API
 
-| Request type  |  Path                          | Response           |
-| --------------|:-------------------------------|:------------------:|
-| `GET`         | ``/:from/:to/rate/``           | ``Number`` as JSON |
-| `GET`         | ``/:from/:to/:value/convert/`` | ``Number`` as JSON |
+| Request type  |  Path                          | Response           | Description
+| --------------|:-------------------------------|:------------------:|:------------------:|
+| `GET`         | ``/:from/:to``           | ``Number`` as JSON | Retrieves the rate of a currency pair |
+| `GET`         | ``/:from/:to/:value`` | ``Number`` as JSON | Convert currency pair  |
