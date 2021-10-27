@@ -1,0 +1,31 @@
+{
+	"description": "Free Exchange Rates API",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/thoughtsunificator/free-exchange-rates-api.git"
+	},
+	"bugs": {
+		"url": "https://github.com/thoughtsunificator/free-exchange-rates-api/issues"
+	},
+	"author": "Romain Lebesle <job@thoughtsunificator.me> (https://thoughtsunificator.me)",
+	"license": "MIT",
+	"scripts": {
+		"start": "forever server.js",
+		"dev": "nodemon server.js"
+	},
+	"dependencies": {
+		"apicache": "^1.6.3",
+		"chalk": "^4.1.2",
+		"cors": "^2.8.5",
+		"express": "^4.17.1",
+		"forever": "^4.0.1",
+		"mongodb": "^4.1.3",
+		"tracer": "^1.1.5"
+	},
+	"engines": {
+		"node": ">= 15.0.0"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.14"
+	}
+}
