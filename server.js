@@ -34,6 +34,7 @@ const app = express()
 
 app.use(apicache.middleware("60 minutes"))
 app.use(cors())
+app.use(express.static('public'))
 
 app.get("/:from/:to", async function (req, res) {
 	try {
