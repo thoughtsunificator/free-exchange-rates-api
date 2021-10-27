@@ -65,22 +65,27 @@ app.get("/:from/:to", async function (req, res) {
 app.get("/:from/:to/:value", async function (req, res) {
 	try {
 		const { value, from, to } = req.params
-		const rate = await collection.findOne({
-			from,
-			to,
-			date: {
-				$gte: new Date(new Date().getTime() - ((5 * 60) * 60000))
-			}
-		})
-		if(rate) {
-			res.json({
+		if(isNaN(value)) {
+			res.json({ error: true, reason: "value is not a number", code: 3 })
+		} else {
+			const rate = await collection.findOne({
 				from,
 				to,
-				value: parseFloat(value * rate.value),
-				date: rate.date
+				date: {
+					$gte: new Date(new Date().getTime() - ((5 * 60) * 60000))
+				}
 			})
-		} else {
-			res.json({ error: true, reason: "rate not found", code: 1 })
+			if(rate) {
+				res.json({
+					from,
+					to,
+					value: parseFloat(value),
+					result: parseFloat(value * rate.value),
+					date: rate.date
+				})
+			} else {
+				res.json({ error: true, reason: "rate not found", code: 1 })
+			}
 		}
 	} catch(ex) {
 		logger.error(ex)

@@ -39,7 +39,6 @@
 				<tr>
 					<th>Request type</th>
 					<th style="text-align:left">Path</th>
-					<th style="text-align:center">Response</th>
 					<th style="text-align:center">Description</th>
 					<th style="text-align:center">Example</th>
 				</tr>
@@ -48,19 +47,43 @@
 				<tr>
 					<td><code>GET</code></td>
 					<td style="text-align:left"><code>/:from/:to</code></td>
-					<td style="text-align:center"><code>Number</code> as JSON</td>
 					<td style="text-align:center">Retrieves the rate of a currency pair</td>
 					<td style="text-align:center"><a href="https://free-exchange-rates-api.herokuapp.com/EUR/USD">https://free-exchange-rates-api.herokuapp.com/EUR/USD</a></td>
 				</tr>
+			</tbody>
+		</table>
+		<pre><code class="lang-json">{ <span class="hljs-attr">"from"</span>:<span class="hljs-string">"EUR"</span>,
+			<span class="hljs-attr">"to"</span>:<span class="hljs-string">"USD"</span>,
+			<span class="hljs-attr">"rate"</span>:<span class="hljs-number">1.15993</span>,
+			<span class="hljs-attr">"date"</span>:<span class="hljs-string">"2021-10-27T15:10:47.616Z"</span>
+		}
+		</code></pre>
+		<table>
+			<thead>
+				<tr>
+					<th>Request type</th>
+					<th style="text-align:left">Path</th>
+					<th style="text-align:center">Description</th>
+					<th style="text-align:center">Example</th>
+				</tr>
+			</thead>
+			<tbody>
 				<tr>
 					<td><code>GET</code></td>
 					<td style="text-align:left"><code>/:from/:to/:value</code></td>
-					<td style="text-align:center"><code>Number</code> as JSON</td>
 					<td style="text-align:center">Convert currency pair</td>
 					<td style="text-align:center"><a href="https://free-exchange-rates-api.herokuapp.com/EUR/USD/15">https://free-exchange-rates-api.herokuapp.com/EUR/USD/15</a></td>
 				</tr>
 			</tbody>
 		</table>
+		<pre><code class="lang-json">{
+			<span class="hljs-string">"from"</span>:<span class="hljs-string">"EUR"</span>,
+			<span class="hljs-string">"to"</span>:<span class="hljs-string">"USD"</span>,
+			<span class="hljs-string">"value"</span>: <span class="hljs-number">250</span>,
+			<span class="hljs-string">"result"</span> <span class="hljs-number">289.98249999999996</span>:,
+			<span class="hljs-string">"date"</span>:<span class="hljs-string">"2021-10-27T15:10:47.616Z"</span>
+		}
+		</code></pre>
 	</body>
 </html>
 

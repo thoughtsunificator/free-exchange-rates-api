@@ -10,7 +10,25 @@ A free to use API for currency rates.
 
 ## API
 
-| Request type  |  Path                        | Response           | Description | Example
-| --------------|:-------------------------------|:------------------:|:------------------:|:------------------:|
-| `GET`         | ``/:from/:to``           | ``Number`` as JSON | Retrieves the rate of a currency pair |  https://free-exchange-rates-api.herokuapp.com/EUR/USD
-| `GET`         | ``/:from/:to/:value``   | ``Number`` as JSON | Convert currency pair  | https://free-exchange-rates-api.herokuapp.com/EUR/USD/15
+| Request type  |  Path                                | Description | Example
+| --------------|:-------------------------------|:------------------:|:------------------:|
+| `GET`         | ``/:from/:to``           |   Retrieves the rate of a currency pair |  https://free-exchange-rates-api.herokuapp.com/EUR/USD
+```json
+{ "from":"EUR",
+  "to":"USD",
+  "rate":1.15993,
+  "date":"2021-10-27T15:10:47.616Z"
+}
+```
+| Request type  |  Path                                | Description | Example
+| --------------|:-------------------------------|:------------------:|:------------------:|
+| `GET`         | ``/:from/:to/:value``    | Convert currency pair  | https://free-exchange-rates-api.herokuapp.com/EUR/USD/15
+```json
+{
+  "from":"EUR",
+  "to":"USD",
+  "value": 250, 
+  "result" 289.98249999999996:, 
+  "date":"2021-10-27T15:10:47.616Z"
+}
+```
