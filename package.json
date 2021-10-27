@@ -1,5 +1,6 @@
 {
 	"description": "Free Exchange Rates API",
+	"type": "module",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/thoughtsunificator/free-exchange-rates-api.git"

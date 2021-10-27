@@ -1,10 +1,10 @@
-const tracer = require("tracer")
-const express = require("express")
-const cors = require("cors")
-const MongoDB = require("mongodb")
-const apicache = require("apicache")
+import tracer from "tracer"
+import express from "express"
+import cors from "cors"
+import MongoDB from "mongodb"
+import apicache from "apicache"
 
-const config = require("./lib/config.js")
+import config from "./lib/config.js"
 
 const consoleLogger = tracer.colorConsole({	format : "{{message}}" })
 
