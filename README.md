@@ -2,6 +2,8 @@
 
 A free to use API for currency rates.
 
+For the scraper see [free-exchange-rates-scraper](https://github.com/thoughtsunificator/free-exchange-rates-scraper).
+
 ## Good to know
 
 - Rates are pulled from Google Search every 60 minutes.
