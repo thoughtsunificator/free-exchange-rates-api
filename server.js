@@ -83,7 +83,7 @@ app.get("/:from/:to/:value", async function (req, res) {
 		}
 	} catch(ex) {
 		logger.error(ex)
-		res.json({ error: true, code: 2 })
+		res.status(500).json({ error: true, code: 2 })
 	}
 })
 
