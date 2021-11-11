@@ -26,7 +26,7 @@ const collection = database.collection("rates")
 
 const app = express()
 
-app.use(apicache.middleware("60 minutes"))
+app.use(apicache.middleware("60 minutes", (req, res) => res.statusCode === 200))
 app.use(cors())
 app.use(express.static('public'))
 
@@ -48,11 +48,11 @@ app.get("/:from/:to", async function (req, res) {
 				date: rate.date
 			})
 		} else {
-			res.json({ error: true, reason: "rate not found", code: 1 })
+			res.status(404).json({ error: true, reason: "rate not found", code: 1 })
 		}
 	} catch(ex) {
 		logger.error(ex)
-		res.json({ error: true, code: 2 })
+		res.status(500).json({ error: true, code: 2 })
 	}
 })
 
@@ -60,7 +60,7 @@ app.get("/:from/:to/:value", async function (req, res) {
 	try {
 		const { value, from, to } = req.params
 		if(isNaN(value)) {
-			res.json({ error: true, reason: "value is not a number", code: 3 })
+			res.status(400).json({ error: true, reason: "value is not a number", code: 3 })
 		} else {
 			const rate = await collection.findOne({
 				from,
@@ -78,7 +78,7 @@ app.get("/:from/:to/:value", async function (req, res) {
 					date: rate.date
 				})
 			} else {
-				res.json({ error: true, reason: "rate not found", code: 1 })
+				res.status(404).json({ error: true, reason: "rate not found", code: 1 })
 			}
 		}
 	} catch(ex) {
@@ -90,3 +90,5 @@ app.get("/:from/:to/:value", async function (req, res) {
 app.listen(config.PORT, function () {
 	logger.info(`Ready and listening on ${config.PORT}`)
 })
+
+export default app
