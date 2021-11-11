@@ -90,5 +90,3 @@ app.get("/:from/:to/:value", async function (req, res) {
 app.listen(config.PORT, function () {
 	logger.info(`Ready and listening on ${config.PORT}`)
 })
-
-export default app
