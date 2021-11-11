@@ -83,12 +83,10 @@ app.get("/:from/:to/:value", async function (req, res) {
 		}
 	} catch(ex) {
 		logger.error(ex)
-		res.json({ error: true, code: 2 })
+		res.status(500).json({ error: true, code: 2 })
 	}
 })
 
 app.listen(config.PORT, function () {
 	logger.info(`Ready and listening on ${config.PORT}`)
 })
-
-export default app
