@@ -32,7 +32,6 @@ const app = express()
 
 app.use(apicache.middleware("60 minutes", (req, res) => res.statusCode === 200))
 app.use(cors())
-app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.get("/:from/:to", async function (req, res) {
 	try {
@@ -90,6 +89,8 @@ app.get("/:from/:to/:value", async function (req, res) {
 		res.status(500).json({ error: true, code: 2 })
 	}
 })
+
+app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.listen(config.PORT, function () {
 	logger.info(`Ready and listening on ${config.PORT}`)
