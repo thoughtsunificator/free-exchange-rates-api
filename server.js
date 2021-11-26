@@ -1,9 +1,13 @@
+import fs from "fs"
 import tracer from "tracer"
 import express from "express"
 import cors from "cors"
 import MongoDB from "mongodb"
 import apicache from "apicache"
 import config from "@thoughtsunificator/config-env"
+
+import swaggerUi from 'swagger-ui-express'
+const swaggerDocument = JSON.parse(fs.readFileSync('./openapi.json'))
 
 const consoleLogger = tracer.colorConsole({	format : "{{message}}" })
 
@@ -28,7 +32,7 @@ const app = express()
 
 app.use(apicache.middleware("60 minutes", (req, res) => res.statusCode === 200))
 app.use(cors())
-app.use(express.static('public'))
+app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.get("/:from/:to", async function (req, res) {
 	try {
