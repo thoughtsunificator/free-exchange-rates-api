@@ -1,0 +1,199 @@
+{
+	"openapi": "3.0.0",
+	"info": {
+		"description": "A free to use API for currency rates.\nFor the scraper see [free-exchange-rates-scraper](https://github.com/thoughtsunificator/free-exchange-rates-scraper).\n## Good to know\n- Rates are pulled from Google Search every 60 minutes.\n- Each request is cached for 60 minutes.\n- There are no app-based limit as far as I go so you can go ahead and query as much as you want.",
+		"version": "1.0.0",
+		"title": "free-exchange-rates-api",
+		"license": {
+			"name": "MIT"
+		}
+	},
+	"servers": [
+		{
+			"url": "https://free-exchange-rates-api.herokuapp.com"
+		}
+	],
+	"paths": {
+		"/{from}/{to}": {
+			"get": {
+				"summary": "Retrieve the exchange rate for a currency pair",
+				"parameters": [
+					{
+						"name": "from",
+						"in": "path",
+						"required": true,
+						"description": "The currency ISO code you want get the exchange rate from",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "to",
+						"in": "path",
+						"required": true,
+						"description": "The currency ISO code you want get the exchange rate to",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Expected response to a valid request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ExchangeRate"
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "unexpected error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/{from}/{to}/{value}": {
+			"get": {
+				"summary": "Convert a given currency pair",
+				"parameters": [
+					{
+						"name": "from",
+						"in": "path",
+						"required": true,
+						"description": "The currency ISO code you want to convert from",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "to",
+						"in": "path",
+						"required": true,
+						"description": "The currency ISO code you want to convert to",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "value",
+						"in": "path",
+						"required": true,
+						"description": "The ammount you want to convert",
+						"schema": {
+							"type": "number"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Expected response to a valid request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Conversion"
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "unexpected error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"ExchangeRate": {
+				"type": "object",
+				"required": [
+					"from",
+					"to",
+					"rate",
+					"date"
+				],
+				"properties": {
+					"from": {
+						"type": "string"
+					},
+					"to": {
+						"type": "string"
+					},
+					"rate": {
+						"type": "number"
+					},
+					"date": {
+						"type": "string",
+						"format": "date-time",
+						"description": "The date when the rate for the given currency pair was retrieved"
+					}
+				}
+			},
+			"Conversion": {
+				"type": "object",
+				"required": [
+					"from",
+					"to",
+					"value",
+					"result",
+					"date"
+				],
+				"properties": {
+					"from": {
+						"type": "string"
+					},
+					"to": {
+						"type": "string"
+					},
+					"value": {
+						"type": "number"
+					},
+					"result": {
+						"type": "number"
+					},
+					"date": {
+						"type": "string",
+						"format": "date-time",
+						"description": "The date when the rate for the given currency pair was retrieved"
+					}
+				}
+			},
+			"Error": {
+				"type": "object",
+				"required": [
+					"error",
+					"code",
+					"reason"
+				],
+				"properties": {
+					"error": {
+						"type": "boolean"
+					},
+					"code": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"reason": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	}
+}
