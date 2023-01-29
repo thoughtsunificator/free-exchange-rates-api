@@ -7,9 +7,9 @@ import { MongoMemoryServer } from 'mongodb-memory-server'
 const request = supertest(app)
 const mongoServer = await MongoMemoryServer.create()
 
-const client = await MongoDB.MongoClient.connect(mongoServer.getUri(), { useUnifiedTopology: true })
+const client = await MongoDB.MongoClient.connect(mongoServer.getUri(), { useUnifiedTopology: true }) 
 const database = client.db("free-exchange-rates-api")
-app.set("database", database)
+app.set("database", database) // TODO : as tests are running concurrently, each one should have its own app.
 app.set("client", client)
 const dateEUR = new Date()
 const dateUSD = new Date()
