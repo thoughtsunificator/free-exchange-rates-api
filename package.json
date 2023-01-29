@@ -12,7 +12,8 @@
 	"license": "MIT",
 	"scripts": {
 		"start": "forever server.js",
-		"dev": "nodemon server.js"
+		"dev": "nodemon server.js",
+		"test": "ava"
 	},
 	"dependencies": {
 		"@thoughtsunificator/config-env": "^1.0.3",
@@ -20,8 +21,10 @@
 		"chalk": "^4.1.2",
 		"cors": "^2.8.5",
 		"express": "^4.17.1",
+		"express-prometheus-middleware": "^1.2.0",
 		"forever": "^4.0.1",
 		"mongodb": "^4.1.3",
+		"supertest": "^6.3.3",
 		"swagger-ui-express": "^4.1.6",
 		"tracer": "^1.1.5"
 	},
@@ -29,6 +32,8 @@
 		"node": ">= 15.0.0"
 	},
 	"devDependencies": {
+		"ava": "^5.1.1",
+		"mongodb-memory-server": "^8.11.4",
 		"nodemon": "^2.0.14"
 	}
 }
