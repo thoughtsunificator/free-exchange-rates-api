@@ -1,7 +1,7 @@
 {
 	"openapi": "3.0.0",
 	"info": {
-		"description": "A free to use API for currency rates.\nFor the scraper see [free-exchange-rates-scraper](https://github.com/thoughtsunificator/free-exchange-rates-scraper).\n## Good to know\n- Rates are pulled from Google Search every 60 minutes.\n- Each request is cached for 60 minutes.\n- There are no app-based limit as far as I go so you can go ahead and query as much as you want.",
+		"description": "Free API for currency conversion.\nFor the scraper see [free-exchange-rates-scraper](https://github.com/thoughtsunificator/free-exchange-rates-scraper).\n## Good to know\n- Rates are pulled from Google Search every 60 minutes.\n- Each request is cached for 60 minutes.\n- There are no app-based limit as far as I go so you can go ahead and query as much as you want.",
 		"version": "1.0.0",
 		"title": "free-exchange-rates-api",
 		"license": {

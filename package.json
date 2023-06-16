@@ -1,5 +1,5 @@
 {
-	"description": "Free Exchange Rates API",
+	"description": "Free API for currency conversion",
 	"type": "module",
 	"repository": {
 		"type": "git",

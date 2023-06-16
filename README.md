@@ -1,6 +1,6 @@
 # free-exchange-rates-api
 
-A free to use API for currency rates.
+Free API for currency conversion.
 
 For the scraper see [free-exchange-rates-scraper](https://github.com/thoughtsunificator/free-exchange-rates-scraper).
 
