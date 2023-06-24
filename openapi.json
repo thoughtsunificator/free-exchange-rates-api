@@ -10,7 +10,7 @@
 	},
 	"servers": [
 		{
-			"url": "https://free-exchange-rates-api.herokuapp.com"
+			"url": "https://rates.thoughtsunificator.me"
 		}
 	],
 	"paths": {
