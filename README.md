@@ -12,4 +12,4 @@ For the scraper see [free-exchange-rates-scraper](https://github.com/thoughtsuni
 
 ## Usage 
 
-See https://free-exchange-rates-api.herokuapp.com
+See https://rates.thoughtsunificator.me
