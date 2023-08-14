@@ -30,6 +30,7 @@
 		"node": ">= 15.0.0"
 	},
 	"devDependencies": {
+		"@flydotio/dockerfile": "^0.4.3",
 		"ava": "^5.1.1",
 		"mongodb-memory-server": "^8.11.4",
 		"nodemon": "^2.0.14"
